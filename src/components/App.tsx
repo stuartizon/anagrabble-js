@@ -7,7 +7,7 @@ import LetterBank from './LetterBank';
 function App() {
   const dispatch = useDispatch();
   useEffect(() => {
-    dispatch(connect('ws://anagrabble-server-2085426441.ap-southeast-2.elb.amazonaws.com/connect'))
+    dispatch(connect('wss://api.anagrabble.com/connect'))
   });
 
   return (
