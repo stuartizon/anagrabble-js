@@ -2,7 +2,7 @@ import React, { useEffect } from 'react';
 import { useDispatch } from 'react-redux';
 import { connect } from '@giantmachines/redux-websocket';
 import { turnLetter } from '../actions';
-import LetterBank from './LetterBank';
+import TileRack from './TileRack';
 
 function App() {
   const dispatch = useDispatch();
@@ -12,7 +12,7 @@ function App() {
 
   return (
     <div id="app">
-      <LetterBank />
+      <TileRack />
       <button onClick={() => dispatch(turnLetter)}>Turn letter</button>
     </div>
   );

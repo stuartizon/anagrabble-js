@@ -1,0 +1,14 @@
+.tile {
+  background: #F8EFC1;
+  border-radius: 5px;
+  box-shadow: 4px 4px 4px rgba(0, 0, 0, 0.25);
+  display: inline-block;
+  font-family: Roboto, Arial;
+  font-size: 26px;
+  font-weight: bold;
+  line-height: 42px;
+  margin: 8px;
+  text-align: center;
+  text-transform: uppercase;
+  width: 42px;
+}
