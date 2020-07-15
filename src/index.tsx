@@ -7,7 +7,8 @@ import { Provider } from 'react-redux'
 import reducer from './reducers';
 import reduxWebsocket from '@giantmachines/redux-websocket';
 
-const store = createStore(reducer, applyMiddleware(reduxWebsocket()));
+const reduxWebsocketMiddleware = reduxWebsocket({ reconnectOnClose: true });
+const store = createStore(reducer, applyMiddleware(reduxWebsocketMiddleware));
 
 ReactDOM.render(
   <React.StrictMode>
