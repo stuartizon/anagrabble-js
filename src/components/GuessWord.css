@@ -1,0 +1,12 @@
+.guessWord {
+    display: flex;
+    width: 100vw;
+}
+
+.guessWord input {
+    border: 1px solid #dddddd;
+    border-radius: 4px;
+    flex: 1;
+    font-size: 20px;
+    padding: 5px;
+}

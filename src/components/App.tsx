@@ -2,7 +2,8 @@ import React, { useEffect } from 'react';
 import { useDispatch } from 'react-redux';
 import { connect } from '@giantmachines/redux-websocket';
 import { turnLetter } from '../actions';
-import TileRack from './TileRack';
+import GameBoard from './GameBoard';
+import GuessWord from './GuessWord';
 
 function App() {
   const dispatch = useDispatch();
@@ -12,8 +13,10 @@ function App() {
 
   return (
     <div id="app">
-      <TileRack />
+
+      <GameBoard />
       <button onClick={() => dispatch(turnLetter)}>Turn letter</button>
+      <GuessWord />
     </div>
   );
 }

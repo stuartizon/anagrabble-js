@@ -1,0 +1,9 @@
+.word {
+  background-color: #ad042d;
+  border-radius: 4px;
+  color: white;
+  font-family: "Roboto, Arial";
+  font-size: 20px;
+  margin: 3px;
+  padding: 3px 8px;
+}
