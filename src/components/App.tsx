@@ -7,7 +7,7 @@ import TileRack from './TileRack';
 function App() {
   const dispatch = useDispatch();
   useEffect(() => {
-    dispatch(connect('wss://api.anagrabble.com/connect'))
+    dispatch(connect('wss://api.anagrabble.com/connect?playerId=Bobby'))
   });
 
   return (

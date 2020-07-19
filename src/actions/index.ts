@@ -1,4 +1,6 @@
 import { Action } from "redux";
-import { send } from "@giantmachines/redux-websocket/dist";
+import { send, WEBSOCKET_MESSAGE, DEFAULT_PREFIX } from "@giantmachines/redux-websocket";
 
 export const turnLetter: Action = send({ key: 'TURN_LETTER' });
+
+export const REDUX_WEBSOCKET_MESSAGE = `${DEFAULT_PREFIX}::${WEBSOCKET_MESSAGE}`;
