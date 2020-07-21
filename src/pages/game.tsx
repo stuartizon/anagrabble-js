@@ -6,12 +6,12 @@ import GameBoard from '../components/GameBoard';
 import GuessWord from '../components/GuessWord';
 import { Store } from '../store';
 
-function Game() {
+function Game(props: GameProps) {
   const dispatch = useDispatch();
   const player = useSelector<Store, string>(store => store.player.name!)
 
   useEffect(() => {
-    dispatch(connect(`wss://api.anagrabble.com/connect?player=${player}`))
+    dispatch(connect(`${props.apiUrl}/connect?player=${player}`))
   });
 
   return (
@@ -22,6 +22,10 @@ function Game() {
       <GuessWord />
     </div>
   );
+}
+
+interface GameProps {
+  apiUrl: string
 }
 
 export default Game;
