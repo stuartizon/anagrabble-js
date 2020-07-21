@@ -1,10 +1,50 @@
 .word {
-  background-color: #ad042d;
   border-radius: 4px;
-  color: white;
   font-family: "Roboto, Arial";
   font-size: 20px;
   margin: 3px;
   padding: 3px 8px;
   text-transform: uppercase;
+  background-color: #000000;
+  color: #ffffff;
+}
+
+.player0 {
+  background-color: #0074d9;
+  color: #b3dbff;
+}
+
+.player1 {
+  background-color: #ff4136;
+  color: #800600;
+}
+
+.player2 {
+  background-color: #2ecc40;
+  color: #0e3d14;
+}
+
+.player3 {
+  background-color: #f012be;
+  color: #660650
+}
+
+.player4 {
+  background-color: #ffdc00;
+  color: #665800;
+}
+
+.player5 {
+  background-color: #39cccc;
+  color: #0e383d;
+}
+
+.player6 {
+  background-color: #ff851b;
+  color: #663000;
+}
+
+.player7 {
+  background-color: #001f3f;
+  color: #80bfff;
 }

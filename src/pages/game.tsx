@@ -11,7 +11,7 @@ function Game() {
   const player = useSelector<Store, string>(store => store.player.name!)
 
   useEffect(() => {
-    dispatch(connect(`wss://api.anagrabble.com/connect?playerId=${player}`))
+    dispatch(connect(`wss://api.anagrabble.com/connect?player=${player}`))
   });
 
   return (

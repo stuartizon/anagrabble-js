@@ -1,12 +1,13 @@
 import * as React from 'react';
 import './Word.css';
+import { Word } from '../store/game';
 
-export default function Word(props: WordProps) {
+export default function (props: WordProps) {
     return (
-        <span className="word">{props.value}</span>
+        <span className={`word player${props.word.playerId}`}>{props.word.value}</span>
     );
 }
 
 interface WordProps {
-    value: string;
+    word: Word
 }

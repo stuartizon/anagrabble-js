@@ -1,14 +1,11 @@
-import { Player } from './player';
-
 export interface GameStore {
-    players: Player[],
+    players: string[],
     words: Word[],
     letters: string[]
 }
 
 export interface Word {
     value: string,
-    root: string,
     playerId: number
 }
 
