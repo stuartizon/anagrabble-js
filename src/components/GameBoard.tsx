@@ -1,13 +1,14 @@
 import React from 'react';
 import { useSelector } from 'react-redux';
-import { GameStore, Word } from '../store';
+import { Word } from '../store/game';
 import Tile from './Tile';
 import WordDisplay from './Word';
 import "./GameBoard.css";
+import { Store } from '../store';
 
 export default function GameBoard() {
-    const letters = useSelector<GameStore, string[]>(store => store.letters);
-    const words = useSelector<GameStore, Word[]>(store => store.words)
+    const letters = useSelector<Store, string[]>(store => store.game.letters);
+    const words = useSelector<Store, Word[]>(store => store.game.words)
 
     return (
         <div className="gameBoard">

@@ -4,23 +4,24 @@ import './index.css';
 import Game from './pages/game';
 import Home from './pages/home';
 import { createStore, applyMiddleware } from 'redux'
-import { Provider } from 'react-redux'
+import { Provider, useSelector } from 'react-redux'
 import reducer from './reducers';
 import reduxWebsocket from '@giantmachines/redux-websocket';
-import { Route, BrowserRouter, Switch } from 'react-router-dom';
+import { Store } from './store';
 
 const reduxWebsocketMiddleware = reduxWebsocket({ reconnectOnClose: true });
 const store = createStore(reducer, applyMiddleware(reduxWebsocketMiddleware));
 
+function App() {
+  const name = useSelector<Store, string | undefined>(store => store.player.name)
+  if (name) return <Game />
+  else return <Home />
+}
+
 ReactDOM.render(
   <React.StrictMode>
     <Provider store={store}>
-      <BrowserRouter>
-        <Switch>
-          <Route path="/game" component={Game}/>
-          <Route path="/" component={Home}/>
-        </Switch>
-      </BrowserRouter>
+      <App />
     </Provider>
   </React.StrictMode>,
   document.getElementById('root')

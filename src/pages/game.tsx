@@ -1,14 +1,17 @@
 import React, { useEffect } from 'react';
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { connect } from '@giantmachines/redux-websocket';
 import { turnLetter } from '../actions';
 import GameBoard from '../components/GameBoard';
 import GuessWord from '../components/GuessWord';
+import { Store } from '../store';
 
 function Game() {
   const dispatch = useDispatch();
+  const player = useSelector<Store, string>(store => store.player.name!)
+
   useEffect(() => {
-    dispatch(connect('ws://localhost:8080/connect?playerId=Bobby'))
+    dispatch(connect(`wss://api.anagrabble.com/connect?playerId=${player}`))
   });
 
   return (

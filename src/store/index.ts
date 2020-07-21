@@ -1,20 +1,7 @@
-export interface GameStore {
-    players: Player[],
-    words: Word[],
-    letters: string[]
-}
+import { GameStore } from "./game";
+import { Player } from "./player";
 
-export interface Player {
-}
-
-export interface Word {
-    value: string,
-    root: string,
-    playerId: number
-}
-
-export const emptyGameStore: GameStore = {
-    players: [],
-    words: [],
-    letters: []
+export interface Store {
+    game: GameStore,
+    player: Player
 }
