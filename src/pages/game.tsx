@@ -5,27 +5,29 @@ import { turnLetter } from '../actions';
 import GameBoard from '../components/GameBoard';
 import GuessWord from '../components/GuessWord';
 import { Store } from '../store';
+import { useParams } from 'react-router-dom';
+import { useConfig } from '../hooks/config';
 
-function Game(props: GameProps) {
+export default function () {
+  const params = useParams<RouteParams>();
+  const config = useConfig();
+  const player = useSelector<Store, string>(store => store.player.name)
   const dispatch = useDispatch();
-  const player = useSelector<Store, string>(store => store.player.name!)
 
   useEffect(() => {
-    dispatch(connect(`${props.apiUrl}/connect?player=${player}`))
+    const baseUrl = config.apiUrl.replace("http", "ws");
+    dispatch(connect(`${baseUrl}/connect/${params.gameId}?player=${player}`))
   });
 
   return (
-    <div id="app">
-
+    <>
       <GameBoard />
       <button onClick={() => dispatch(turnLetter)}>Turn letter</button>
       <GuessWord />
-    </div>
-  );
+    </>
+  )
 }
 
-interface GameProps {
-  apiUrl: string
+interface RouteParams {
+  gameId: string;
 }
-
-export default Game;
