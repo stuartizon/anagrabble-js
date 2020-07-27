@@ -10,15 +10,19 @@ export default function GameBoard() {
     const words = useSelector(partitionWords);
 
     return (
-        <div className="gameBoard">
+        <div className="game-board">
+            <div className="word-heading">THEIR WORDS</div>
             <div className="words">
                 {words.others.map((word, index) => <WordDisplay key={index} word={word} />)}
             </div>
-            <hr />
+            <hr className="word-divider" />
+            <div className="word-heading">YOUR WORDS</div>
             <div className="words">
                 {words.mine.map((word, index) => <WordDisplay key={index} word={word} />)}
             </div>
-            {letters.map((letter, index) => <Tile key={index} letter={letter} />)}
+            <div className="tiles">
+                {letters.map((letter, index) => <Tile key={index} letter={letter} />)}
+            </div>
         </div>
     );
 }
