@@ -1,14 +1,13 @@
 import React from "react";
-import { useState, ChangeEvent, FormEvent } from "react";
+import { useState, FormEvent } from "react";
 import { useDispatch } from "react-redux";
 import { join } from "../actions";
+import EnterName from "../components/enter-name";
 
 export default function () {
     const [name, setName] = useState("");
     const dispatch = useDispatch();
-
-    const update = (event: ChangeEvent<HTMLInputElement>) => setName(event.target.value);
-    const submit = (event: FormEvent<HTMLFormElement>) => {
+    const submit = (event: FormEvent) => {
         event.preventDefault();
         dispatch(join(name));
     };
@@ -16,8 +15,7 @@ export default function () {
     return (
         <>
             <form onSubmit={submit}>
-                <div>Enter name to begin:</div>
-                <input type="text" placeholder="Name" onChange={update} />
+                <EnterName onChange={setName} />
                 <button type="submit">Join</button>
             </form>
         </>
